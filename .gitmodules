@@ -1,0 +1,3 @@
+[submodule "lib/weighted-bipartite-perfect-matching"]
+	path = lib/weighted-bipartite-perfect-matching
+	url = git@github.com:weaversa/weighted-bipartite-perfect-matching.git
