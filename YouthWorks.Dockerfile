@@ -31,6 +31,8 @@ RUN git clone git@github.com:rdmpage/maximum-weighted-bipartite-matching.git && 
     make && \
     make install
 
-RUN make
+RUN cd YouthWorks && \
+    make && \
+    make test/test
 
 CMD ["/bin/bash"]
