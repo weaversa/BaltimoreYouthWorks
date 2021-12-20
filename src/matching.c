@@ -14,7 +14,7 @@ matched_pairs_t *find_matching(digraph_t *pDigraph, youths_t *youths, jobs_t *jo
   fclose(fDigraph);
   
   char tmpstring[1024];
-  snprintf(tmpstring, 1024, "matching tmp.gml > tmp.out");
+  snprintf(tmpstring, 1024, "/bin/bash -c \"matching tmp.gml > tmp.out\"");
   system(tmpstring); //Solve the assignment problem
 
   unlink("tmp.gml");

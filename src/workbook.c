@@ -20,7 +20,7 @@ void create_workbook(matched_pairs_t *pairs, youths_t *youths, jobs_t *jobs) {
   }
 
   wordexp_t exp_result;
-  wordexp("~/Desktop/YouthworksMatching.xlsx", &exp_result, 0);
+  wordexp("/output/YouthworksMatching.xlsx", &exp_result, 0);
   lxw_workbook  *workbook  = workbook_new(exp_result.we_wordv[0]);
   wordfree(&exp_result);
 

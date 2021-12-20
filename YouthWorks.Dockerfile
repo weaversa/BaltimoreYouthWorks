@@ -1,7 +1,7 @@
 FROM centos:7
 
 RUN yum -y update
-RUN yum -y install git make automake gcc gcc-c++ libcsv-devel.x86_64 zlib-devel.x86_64
+RUN yum -y install git make automake gcc gcc-c++ zlib-devel.x86_64
 
 RUN git clone https://github.com/rdmpage/graph-template-library.git && \
     cd graph-template-library && \
@@ -23,9 +23,21 @@ RUN git clone https://github.com/jmcnamara/libxlsxwriter.git && \
     make && \
     make install
 
-RUN git clone https://github.com/weaversa/BaltimoreYouthWorks.git && \
-    cd YouthWorks && \
+RUN git clone https://github.com/rgamble/libcsv.git && \
+    cd libcsv && \
+    aclocal && \
+    autoconf && \
+    automake --add-missing && \
+    ./configure && \
     make && \
-    make test/test
+    make install
 
-CMD ["/bin/bash"]
+RUN git clone https://github.com/weaversa/BaltimoreYouthWorks.git && \
+   cd BaltimoreYouthWorks && \
+   make && \
+   make test/test && \
+   cp test/test /usr/local/bin/youthworks
+
+ENV LD_LIBRARY_PATH=/usr/local/lib
+
+ENTRYPOINT ["/usr/local/bin/youthworks"]
