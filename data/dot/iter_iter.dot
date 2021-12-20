@@ -1,6 +1,0 @@
-digraph  {
-  rankdir=TB
-  0 -> 2	 [label="A"];
-  0 -> 3	 [label="A", style="invis"];
-  1 -> 2	 [label="A", constraint = false, style="invis"];
-}
