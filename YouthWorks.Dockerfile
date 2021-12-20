@@ -11,10 +11,8 @@ RUN git clone https://github.com/rdmpage/graph-template-library.git && \
     make && \
     make install
 
-RUN git clone https://github.com/rdmpage/maximum-weighted-bipartite-matching.git && \
+RUN git clone https://github.com/weaversa/maximum-weighted-bipartite-matching.git && \
     cd maximum-weighted-bipartite-matching && \
-    patch matching.cpp ../BaltimoreYouthWorks/patch/matching.patch && \
-    patch graph/mwbmatching.cpp ../BaltimoreYouthWorks/patch/mwbmatching.patch && \
     aclocal && \
     autoconf && \
     automake --add-missing && \
